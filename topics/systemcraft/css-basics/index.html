@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basics — Systemcraft — The Grimoire</title>
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="../../../index.html" class="nav-logo">⚗ The Grimoire</a>
+        <ul class="nav-links">
+            <li><a href="../../../index.html">Home</a></li>
+            <li><a href="../index.html" class="active">Systemcraft</a></li>
+            <li><a href="../../codex-vitae/index.html">Codex Vitae</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="page-layout">
+
+        <aside class="sidebar">
+            <h2>Systemcraft</h2>
+
+            <div class="sidebar-section">
+                <h3>Foundations</h3>
+                <ul>
+                    <li><a href="../index.html">Overview</a></li>
+                    <li><a href="../html-basics/index.html">HTML Basics</a></li>
+                    <li><a href="index.html" class="active">CSS Basics</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Coming Soon</h3>
+                <ul>
+                    <li><a href="#">JavaScript Basics</a></li>
+                    <li><a href="#">GitHub & Publishing</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Grimoire</h3>
+                <ul>
+                    <li><a href="../../../index.html">← Back to Home</a></li>
+                </ul>
+            </div>
+        </aside>
+
+
+        <main class="main-content">
+            <div class="parchment">
+
+                <div class="breadcrumb">
+                    <a href="../../../index.html">Home</a>
+                    <span>›</span>
+                    <a href="../index.html">Systemcraft</a>
+                    <span>›</span>
+                    CSS Basics
+                </div>
+
+                <h1>CSS Basics</h1>
+                <div class="title-rule"></div>
+
+                <div class="lore-block">
+                    "HTML gives things form. CSS gives them presence. The same structure, dressed differently, becomes a different world."
+                    <cite>— Systemcraft, Second Lesson</cite>
+                </div>
+
+                <p>
+                    CSS stands for <strong>Cascading Style Sheets</strong>. It is the language that controls
+                    how HTML looks. Every color, font, size, spacing, border, and layout rule you see
+                    on this page — including the parchment panels, the gold borders, and the dark background —
+                    comes entirely from CSS.
+                </p>
+
+                <h2>How CSS Works</h2>
+
+                <p>
+                    CSS is written as <strong>rules</strong>. Each rule has two parts:
+                    a <strong>selector</strong> (which HTML element to target) and
+                    <strong>declarations</strong> (what to change about it).
+                </p>
+
+                <pre><code>/* This is a CSS rule */
+/* "p" is the selector — it targets all &lt;p&gt; tags */
+p {
+    color: #2c1a0e;        /* text color */
+    font-size: 1rem;       /* text size */
+    line-height: 1.8;      /* space between lines */
+    margin-bottom: 16px;   /* space below each paragraph */
+}</code></pre>
+
+                <h2>How to Connect CSS to HTML</h2>
+
+                <p>
+                    You write CSS in a separate file (usually called <code>style.css</code>),
+                    then link it to your HTML file using a <code>&lt;link&gt;</code> tag inside the <code>&lt;head&gt;</code>:
+                </p>
+
+                <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+
+                <p>
+                    Once linked, every rule in <code>style.css</code> applies to the HTML.
+                    Change the CSS — the page updates instantly on refresh.
+                </p>
+
+                <h2>The Most Important Properties</h2>
+
+                <pre><code>/* TEXT */
+color: #333;                    /* text color */
+font-size: 1rem;                /* 1rem = 16px by default */
+font-family: 'Georgia', serif;  /* font choice */
+font-weight: bold;              /* bold text */
+text-align: center;             /* center text */
+
+/* SPACING */
+margin: 20px;                   /* space OUTSIDE the element */
+padding: 16px;                  /* space INSIDE the element */
+margin-top / margin-bottom / margin-left / margin-right
+
+/* SIZE */
+width: 300px;                   /* fixed width */
+max-width: 800px;               /* won't grow wider than this */
+height: 100px;
+
+/* BACKGROUND & BORDER */
+background-color: #f5edd6;
+border: 1px solid #c9a84c;
+border-radius: 8px;             /* rounded corners */
+
+/* BOX MODEL */
+box-sizing: border-box;         /* padding included in width calculation */</code></pre>
+
+                <h2>CSS Variables</h2>
+
+                <p>
+                    CSS variables let you define a value once and reuse it everywhere.
+                    This is how this entire grimoire uses one color scheme — change the variable, and everything updates.
+                </p>
+
+                <pre><code>/* Define variables in :root (applies to the whole page) */
+:root {
+    --my-color: #c9a84c;
+    --my-font: 'Georgia', serif;
+}
+
+/* Use them anywhere with var() */
+h1 {
+    color: var(--my-color);
+    font-family: var(--my-font);
+}</code></pre>
+
+                <div class="rune-divider">✦ ✦ ✦</div>
+
+                <h2>Understanding "Cascading"</h2>
+
+                <p>
+                    The "C" in CSS stands for <em>Cascading</em> — meaning rules flow downward and
+                    later rules override earlier ones. More <strong>specific</strong> selectors win over general ones.
+                </p>
+
+                <pre><code>p { color: black; }             /* all paragraphs: black */
+.special { color: red; }       /* paragraphs with class="special": red */
+#unique { color: gold; }       /* the element with id="unique": gold */
+
+/* id > class > tag — that's the specificity order */</code></pre>
+
+                <h2>Practice Exercise</h2>
+
+                <p>Take your <code>practice.html</code> from the HTML chapter. Now:</p>
+
+                <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--ink-dark);">
+                    <li>Create a <code>style.css</code> file in the same folder</li>
+                    <li>Link it to your HTML with a <code>&lt;link&gt;</code> tag</li>
+                    <li>Change the body background color to something other than white</li>
+                    <li>Change the <code>h1</code> color and font-size</li>
+                    <li>Add <code>padding</code> and a <code>border</code> to a paragraph</li>
+                    <li>Define at least one CSS variable and use it</li>
+                </ul>
+
+                <div class="lore-block">
+                    Most of what you will learn about CSS comes from trying something, 
+                    seeing the wrong result, and figuring out why. That process is the lesson. 
+                    The documentation is just a map.
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Thomas Giardino &nbsp;·&nbsp; The Grimoire</p>
+    </footer>
+
+    <script src="../../../script.js"></script>
+</body>
+</html>

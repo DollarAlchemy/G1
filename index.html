@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- DOCTYPE tells the browser: "this is modern HTML5, render it properly" -->
+<html lang="en">
+
+<head>
+    <!-- meta charset: tells browser to use UTF-8 text encoding (handles all characters) -->
+    <meta charset="UTF-8">
+    <!-- viewport: makes the page scale correctly on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grimoire — A Codex of Knowledge</title>
+    <!-- link rel="stylesheet": connects our CSS file to this HTML page -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ======================================================
+         TOP NAVIGATION BAR
+         The sticky bar at the top. It stays visible as you scroll.
+         ====================================================== -->
+    <nav class="top-nav">
+        <!-- This is the "logo" link — clicking it always returns to home -->
+        <a href="index.html" class="nav-logo">⚗ The Grimoire</a>
+
+        <!-- nav links: main sections of the site -->
+        <!-- "active" class = currently selected page (highlighted gold) -->
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="topics/systemcraft/index.html">Systemcraft</a></li>
+            <li><a href="topics/codex-vitae/index.html">Codex Vitae</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- ======================================================
+         HERO SECTION
+         The large welcoming panel at the top of the home page.
+         ====================================================== -->
+    <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 0;">
+        <div class="grimoire-hero">
+            <!-- A large decorative glyph / symbol -->
+            <span class="glyph-large">📖</span>
+
+            <h1>The Grimoire</h1>
+            <p class="subtitle">A Living Codex of Systems, Craft, and Inquiry</p>
+
+            <!-- Decorative gold line separator -->
+            <div class="hero-rule"></div>
+
+            <p class="intro-text">
+                This codex is a personal archive — part journal, part manual, part field guide.
+                It collects knowledge across disciplines: the logic of machines, the architecture of
+                focused living, the craft of making things. Each chapter is a door. Enter where curiosity leads.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- ======================================================
+         MAIN TWO-COLUMN LAYOUT
+         .page-layout is a flexbox container (set in style.css).
+         It puts .sidebar on the left and .main-content on the right.
+         ====================================================== -->
+    <div class="page-layout">
+
+        <!-- LEFT: SIDEBAR (table of contents / navigation) -->
+        <aside class="sidebar">
+            <h2>Contents</h2>
+
+            <!-- Each .sidebar-section groups related links together -->
+            <div class="sidebar-section">
+                <h3>Volume I</h3>
+                <ul>
+                    <li><a href="topics/systemcraft/index.html">Systemcraft</a></li>
+                    <li><a href="topics/systemcraft/html-basics/index.html">↳ HTML Basics</a></li>
+                    <li><a href="topics/systemcraft/css-basics/index.html">↳ CSS Basics</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Volume II</h3>
+                <ul>
+                    <li><a href="topics/codex-vitae/index.html">Codex Vitae</a></li>
+                </ul>
+            </div>
+        </aside>
+
+
+        <!-- RIGHT: MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- CHAPTER CARDS SECTION -->
+            <div class="parchment">
+                <h2>Volumes of the Grimoire</h2>
+                <p>
+                    Each volume is a discipline — a body of knowledge with its own language,
+                    tools, and ways of seeing. Select a volume below to begin.
+                </p>
+
+                <!-- .chapter-grid uses CSS Grid (defined in style.css) to lay cards out -->
+                <div class="chapter-grid">
+
+                    <!-- Each .chapter-card is a clickable link to a topic -->
+                    <a href="topics/systemcraft/index.html" class="chapter-card">
+                        <span class="card-glyph">⚙</span>
+                        <h3>Systemcraft</h3>
+                        <p>The logic of machines. HTML, CSS, JavaScript, and the architecture of the web.</p>
+                    </a>
+
+                    <a href="topics/codex-vitae/index.html" class="chapter-card">
+                        <span class="card-glyph">🜂</span>
+                        <h3>Codex Vitae</h3>
+                        <p>Principles for a focused, deliberate, and well-examined life.</p>
+                    </a>
+
+                    <!-- This card links to a page that doesn't exist yet — that's fine.
+                         Add the folder and file when you're ready to expand. -->
+                    <a href="topics/game-craft/index.html" class="chapter-card">
+                        <span class="card-glyph">🎮</span>
+                        <h3>Game Craft</h3>
+                        <p>Game design theory, mechanics, and the language of interactive worlds. <em>(Coming soon)</em></p>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- LORE DIVIDER + ABOUT NOTE -->
+            <div class="rune-divider">✦ ✦ ✦</div>
+
+            <div class="parchment">
+                <h2>About This Codex</h2>
+
+                <!-- .lore-block is a styled callout box for important or atmospheric text -->
+                <div class="lore-block">
+                    "A grimoire is not read from cover to cover. It is consulted, annotated, and returned to.
+                    Its value lies in the returning."
+                    <cite>— Keeper's Note, Vol. I</cite>
+                </div>
+
+                <p>
+                    This grimoire is a living document — it grows as knowledge is gathered, tested, and refined.
+                    It is not a finished product. It is a practice.
+                </p>
+                <p>
+                    Pages are added, revised, and reorganized over time. If a chapter feels incomplete,
+                    that is because it is. Return again later.
+                </p>
+            </div>
+
+        </main>
+    </div><!-- end .page-layout -->
+
+
+    <!-- ======================================================
+         FOOTER
+         ====================================================== -->
+    <footer class="site-footer">
+        <p>&copy; 2025 Thomas Giardino &nbsp;·&nbsp; The Grimoire &nbsp;·&nbsp; All rights reserved.</p>
+    </footer>
+
+    <!-- Connect the JavaScript file. It's placed at the END of the body
+         so the HTML elements above all exist before the script tries to use them. -->
+    <script src="script.js"></script>
+
+</body>
+</html>

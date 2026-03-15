@@ -1,0 +1,489 @@
+/* ============================================================
+   GRIMOIRE — SHARED STYLESHEET
+   This file controls the visual appearance of every page.
+   CSS variables (--variable-name) let you change the whole
+   color scheme in one place by editing the :root block.
+   ============================================================ */
+
+/* --- Google Fonts Import ---
+   We import two fonts from Google:
+   'Cinzel' = decorative headings (Roman-inscription style)
+   'EB Garamond' = body text (classic book serif) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* --- CSS Variables (the "color palette") ---
+   Edit these to retheme the entire site at once. */
+:root {
+    --bg-page:        #1a1510;   /* darkest layer — outer page background */
+    --bg-parchment:   #f5edd6;   /* parchment panel color */
+    --bg-panel:       #e8d9b5;   /* slightly darker parchment for sidebar */
+    --bg-nav:         #2a1f14;   /* dark wood for nav bar */
+
+    --ink-dark:       #2c1a0e;   /* main body text color */
+    --ink-medium:     #5a3a20;   /* subheadings, section labels */
+    --ink-light:      #8b6340;   /* muted text, captions */
+
+    --accent-gold:    #c9a84c;   /* gold — borders, highlights, active states */
+    --accent-red:     #8b2020;   /* dark red — links, important callouts */
+
+    --border-rune:    1px solid #c9a84c;   /* standard gold border */
+    --border-faint:   1px solid #d4b896;   /* subtle inner dividers */
+
+    --font-heading:   'Cinzel', serif;
+    --font-body:      'EB Garamond', serif;
+
+    --radius-panel:   6px;
+    --shadow-panel:   0 4px 20px rgba(0,0,0,0.5);
+}
+
+/* --- Reset & Base ---
+   Remove browser default spacing and make everything use border-box sizing.
+   border-box means: padding is INCLUDED in width/height calculations. */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Body ---
+   This is the outermost layer — the dark "desk" everything sits on. */
+body {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-dark);
+    background-color: var(--bg-page);
+    /* Subtle noise texture using a CSS background pattern */
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255,255,255,0.012) 2px,
+        rgba(255,255,255,0.012) 4px
+    );
+    min-height: 100vh;
+}
+
+/* ============================================================
+   TOP NAVIGATION BAR
+   The bar that sits at the top of every page.
+   position: sticky means it stays visible as you scroll.
+   ============================================================ */
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;               /* sits above all other content */
+    background-color: var(--bg-nav);
+    border-bottom: 2px solid var(--accent-gold);
+    padding: 0 24px;
+    display: flex;              /* flexbox: children line up horizontally */
+    align-items: center;        /* vertical centering */
+    justify-content: space-between; /* push logo left, links right */
+    height: 54px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+.nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--accent-gold);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;                  /* space between each nav link */
+    list-style: none;
+}
+
+.nav-links a {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: #c8b89a;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-gold);
+}
+
+/* ============================================================
+   PAGE LAYOUT
+   The main two-column layout: sidebar + content.
+   display: flex makes children (sidebar + main) sit side by side.
+   ============================================================ */
+.page-layout {
+    display: flex;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;             /* centers the layout on wide screens */
+    padding: 32px 24px;
+    align-items: flex-start;    /* sidebar and content start at the same top */
+}
+
+/* --- Sidebar ---
+   The left panel. flex: 0 0 260px means: don't grow, don't shrink, be 260px wide. */
+.sidebar {
+    flex: 0 0 260px;
+    background-color: var(--bg-panel);
+    border: var(--border-rune);
+    border-radius: var(--radius-panel);
+    padding: 24px 20px;
+    box-shadow: var(--shadow-panel);
+    position: sticky;           /* sticks in place as content scrolls */
+    top: 74px;                  /* offset below the nav bar */
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;           /* scroll if content is taller than viewport */
+}
+
+.sidebar h2 {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: var(--border-rune);
+}
+
+.sidebar-section {
+    margin-bottom: 20px;
+}
+
+.sidebar-section h3 {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.sidebar-section ul {
+    list-style: none;
+}
+
+.sidebar-section ul li {
+    margin-bottom: 4px;
+}
+
+.sidebar-section ul li a {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--ink-medium);
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.sidebar-section ul li a:hover {
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--ink-dark);
+}
+
+.sidebar-section ul li a.active {
+    background: var(--accent-gold);
+    color: #1a1510;
+    font-weight: 600;
+}
+
+/* --- Main Content Area ---
+   flex: 1 means: take up all remaining space after the sidebar. */
+.main-content {
+    flex: 1;
+    margin-left: 28px;
+}
+
+/* ============================================================
+   PARCHMENT PANELS
+   The cream-colored "page" cards that content lives inside.
+   ============================================================ */
+.parchment {
+    background-color: var(--bg-parchment);
+    border: var(--border-rune);
+    border-radius: var(--radius-panel);
+    padding: 40px 48px;
+    box-shadow: var(--shadow-panel);
+    margin-bottom: 28px;
+    /* Subtle inner vignette (darker edges = aged paper feel) */
+    background-image:
+        radial-gradient(ellipse at top left, rgba(180,140,80,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(100,60,20,0.06) 0%, transparent 60%);
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    line-height: 1.3;
+}
+
+.parchment h1 {
+    font-size: 2.2rem;
+    color: var(--ink-dark);
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+}
+
+/* The decorative gold rule under the main title */
+.title-rule {
+    width: 80px;
+    height: 2px;
+    background: var(--accent-gold);
+    margin: 12px 0 24px 0;
+}
+
+.parchment h2 {
+    font-size: 1.4rem;
+    color: var(--ink-medium);
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: var(--border-faint);
+}
+
+.parchment h3 {
+    font-size: 1.1rem;
+    color: var(--ink-medium);
+    margin: 20px 0 8px;
+}
+
+.parchment p {
+    margin-bottom: 16px;
+    color: var(--ink-dark);
+}
+
+.parchment a {
+    color: var(--accent-red);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 32, 32, 0.3);
+    transition: border-color 0.2s;
+}
+
+.parchment a:hover {
+    border-bottom-color: var(--accent-red);
+}
+
+/* --- Lore Block ---
+   A styled callout box for quotes, flavor text, or important notes. */
+.lore-block {
+    border-left: 3px solid var(--accent-gold);
+    background: rgba(201, 168, 76, 0.08);
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-style: italic;
+    color: var(--ink-medium);
+    border-radius: 0 4px 4px 0;
+}
+
+.lore-block cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    color: var(--ink-light);
+    letter-spacing: 0.05em;
+}
+
+/* --- Chapter Card ---
+   Used on the home page to display topic cards in a grid. */
+.chapter-grid {
+    display: grid;
+    /* auto-fill: creates as many columns as fit; minmax: each min 220px wide */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 16px;
+}
+
+.chapter-card {
+    background: var(--bg-panel);
+    border: var(--border-rune);
+    border-radius: var(--radius-panel);
+    padding: 20px;
+    text-decoration: none;
+    color: var(--ink-dark);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    display: block;
+}
+
+.chapter-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    background: #ede0bf;
+    border-bottom-color: var(--border-faint);
+}
+
+.chapter-card .card-glyph {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.chapter-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--ink-dark);
+    margin-bottom: 6px;
+}
+
+.chapter-card p {
+    font-size: 0.88rem;
+    color: var(--ink-medium);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Page Breadcrumb ---
+   The small navigation trail at the top: Home > Topic > Page */
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    letter-spacing: 0.06em;
+}
+
+.breadcrumb a {
+    color: var(--ink-light);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-gold);
+    border-bottom-color: var(--accent-gold);
+}
+
+.breadcrumb span {
+    margin: 0 6px;
+    color: var(--accent-gold);
+}
+
+/* --- Rune Divider ---
+   A decorative horizontal separator. */
+.rune-divider {
+    text-align: center;
+    margin: 28px 0;
+    color: var(--accent-gold);
+    letter-spacing: 0.5em;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ============================================================
+   HOME PAGE HERO
+   The large introduction at the top of index.html
+   ============================================================ */
+.grimoire-hero {
+    text-align: center;
+    padding: 60px 48px 48px;
+    background-color: var(--bg-parchment);
+    border: var(--border-rune);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+    margin-bottom: 28px;
+    background-image:
+        radial-gradient(ellipse at top, rgba(201,168,76,0.1) 0%, transparent 60%);
+}
+
+.grimoire-hero .glyph-large {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 16px;
+    filter: sepia(0.3);
+}
+
+.grimoire-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    color: var(--ink-dark);
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+}
+
+.grimoire-hero .subtitle {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink-medium);
+    margin-bottom: 20px;
+}
+
+.grimoire-hero .hero-rule {
+    width: 120px;
+    height: 1px;
+    background: var(--accent-gold);
+    margin: 0 auto 20px;
+}
+
+.grimoire-hero .intro-text {
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--ink-dark);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.82rem;
+    color: #7a6a54;
+    border-top: 1px solid #3a2a1a;
+    font-family: var(--font-heading);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   When the screen is 768px wide or less, switch to a stacked layout.
+   ============================================================ */
+@media (max-width: 768px) {
+    /* Stack sidebar on top of content instead of side by side */
+    .page-layout {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .sidebar {
+        flex: none;
+        width: 100%;
+        position: static;       /* unstick on mobile so it scrolls normally */
+        max-height: none;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .parchment {
+        padding: 24px 20px;
+    }
+
+    .grimoire-hero {
+        padding: 36px 24px 32px;
+    }
+
+    .grimoire-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .chapter-grid {
+        grid-template-columns: 1fr;
+    }
+}

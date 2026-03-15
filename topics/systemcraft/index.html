@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systemcraft — The Grimoire</title>
+    <!-- 
+        IMPORTANT: Path back to the stylesheet.
+        We're now inside /topics/systemcraft/ — two folders deep.
+        So we use ../../ to go UP two levels to find style.css at the root.
+        Root/style.css 
+        ↑ ../../style.css means: go up one folder (systemcraft), go up again (topics), find style.css
+    -->
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+    <!-- TOP NAV — same structure on every page -->
+    <nav class="top-nav">
+        <a href="../../index.html" class="nav-logo">⚗ The Grimoire</a>
+        <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <!-- "active" is on Systemcraft since that's the current section -->
+            <li><a href="index.html" class="active">Systemcraft</a></li>
+            <li><a href="../codex-vitae/index.html">Codex Vitae</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="page-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h2>Systemcraft</h2>
+
+            <div class="sidebar-section">
+                <h3>Foundations</h3>
+                <ul>
+                    <li><a href="index.html" class="active">Overview</a></li>
+                    <li><a href="html-basics/index.html">HTML Basics</a></li>
+                    <li><a href="css-basics/index.html">CSS Basics</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Coming Soon</h3>
+                <ul>
+                    <li><a href="#">JavaScript Basics</a></li>
+                    <li><a href="#">GitHub & Publishing</a></li>
+                </ul>
+            </div>
+
+            <!-- Back to the main table of contents -->
+            <div class="sidebar-section">
+                <h3>Grimoire</h3>
+                <ul>
+                    <li><a href="../../index.html">← Back to Home</a></li>
+                </ul>
+            </div>
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <div class="parchment">
+                <!-- BREADCRUMB: shows the user where they are in the site hierarchy -->
+                <div class="breadcrumb">
+                    <a href="../../index.html">Home</a>
+                    <span>›</span>
+                    Systemcraft
+                </div>
+
+                <h1>Systemcraft</h1>
+                <div class="title-rule"></div>
+
+                <div class="lore-block">
+                    "To understand the machine is not to master it — it is to begin speaking its language."
+                    <cite>— Systemcraft, Codex I</cite>
+                </div>
+
+                <p>
+                    Systemcraft is the study of how digital systems are built, communicated,
+                    and maintained. It begins with the web — the most immediate and accessible
+                    canvas available to any practitioner.
+                </p>
+
+                <p>
+                    The web is built from three layers. Master these three, and you can build
+                    nearly anything a browser can display:
+                </p>
+
+                <h2>The Three Layers</h2>
+
+                <h3>I. HTML — Structure</h3>
+                <p>
+                    HTML (HyperText Markup Language) is the skeleton. It defines <em>what exists</em>
+                    on a page: headings, paragraphs, links, images, buttons. Without HTML, there is nothing.
+                </p>
+
+                <h3>II. CSS — Appearance</h3>
+                <p>
+                    CSS (Cascading Style Sheets) is the skin. It defines <em>how things look</em>:
+                    color, size, spacing, fonts, layout. The same HTML can look completely different
+                    with different CSS.
+                </p>
+
+                <h3>III. JavaScript — Behavior</h3>
+                <p>
+                    JavaScript is the nervous system. It defines <em>how things react</em>:
+                    clicks, animations, dynamic content that changes without reloading the page.
+                </p>
+
+                <div class="rune-divider">✦ ✦ ✦</div>
+
+                <h2>Chapters in This Volume</h2>
+
+                <!-- Chapter cards for subtopics -->
+                <div class="chapter-grid">
+                    <a href="html-basics/index.html" class="chapter-card">
+                        <span class="card-glyph">📄</span>
+                        <h3>HTML Basics</h3>
+                        <p>Tags, structure, and the skeleton of every web page.</p>
+                    </a>
+                    <a href="css-basics/index.html" class="chapter-card">
+                        <span class="card-glyph">🎨</span>
+                        <h3>CSS Basics</h3>
+                        <p>Color, layout, fonts — how to make things look the way you imagine them.</p>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Thomas Giardino &nbsp;·&nbsp; The Grimoire</p>
+    </footer>
+
+    <!-- 
+        Path to script.js from here: also ../../script.js (two folders up).
+        Note: script.js handles nav highlighting and is optional on topic pages.
+    -->
+    <script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics — Systemcraft — The Grimoire</title>
+    <!-- 
+        We're now THREE folders deep: /topics/systemcraft/html-basics/
+        So we go up THREE levels: ../../../style.css
+    -->
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="../../../index.html" class="nav-logo">⚗ The Grimoire</a>
+        <ul class="nav-links">
+            <li><a href="../../../index.html">Home</a></li>
+            <li><a href="../index.html" class="active">Systemcraft</a></li>
+            <li><a href="../../codex-vitae/index.html">Codex Vitae</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="page-layout">
+
+        <aside class="sidebar">
+            <h2>Systemcraft</h2>
+
+            <div class="sidebar-section">
+                <h3>Foundations</h3>
+                <ul>
+                    <li><a href="../index.html">Overview</a></li>
+                    <!-- active class on the current page -->
+                    <li><a href="index.html" class="active">HTML Basics</a></li>
+                    <li><a href="../css-basics/index.html">CSS Basics</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Coming Soon</h3>
+                <ul>
+                    <li><a href="#">JavaScript Basics</a></li>
+                    <li><a href="#">GitHub & Publishing</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Grimoire</h3>
+                <ul>
+                    <li><a href="../../../index.html">← Back to Home</a></li>
+                </ul>
+            </div>
+        </aside>
+
+
+        <main class="main-content">
+            <div class="parchment">
+
+                <!-- BREADCRUMB -->
+                <div class="breadcrumb">
+                    <a href="../../../index.html">Home</a>
+                    <span>›</span>
+                    <a href="../index.html">Systemcraft</a>
+                    <span>›</span>
+                    HTML Basics
+                </div>
+
+                <h1>HTML Basics</h1>
+                <div class="title-rule"></div>
+
+                <div class="lore-block">
+                    "HTML does not make things look good. It makes things <em>exist</em>. That is its only job, and it does it well."
+                    <cite>— Systemcraft, First Lesson</cite>
+                </div>
+
+                <p>
+                    HTML stands for <strong>HyperText Markup Language</strong>. It is the foundation of every page on the web.
+                    Every heading, paragraph, image, link, and button you see in a browser exists because
+                    an HTML tag told the browser it should be there.
+                </p>
+
+                <h2>What is a Tag?</h2>
+
+                <p>
+                    HTML is written using <strong>tags</strong>. A tag is a word wrapped in angle brackets.
+                    Most tags come in pairs: an opening tag and a closing tag. The closing tag has a forward slash.
+                </p>
+
+                <!-- 
+                    We use <pre> and <code> to display code examples.
+                    <pre> preserves whitespace and line breaks.
+                    <code> signals "this is code" (can be styled differently in CSS).
+                    The &lt; and &gt; are HTML entities — they display < and > without
+                    the browser mistaking them for real tags.
+                -->
+                <pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;h1&gt;This is a big heading.&lt;/h1&gt;
+
+&lt;h2&gt;This is a smaller heading.&lt;/h2&gt;
+
+&lt;a href="other-page.html"&gt;This is a link.&lt;/a&gt;</code></pre>
+
+                <h2>The Structure of Every HTML Page</h2>
+
+                <p>
+                    Every HTML file follows the same basic skeleton. This is not optional — it's the contract
+                    the browser expects.
+                </p>
+
+                <pre><code>&lt;!DOCTYPE html&gt;          &lt;!-- tells browser: this is HTML5 --&gt;
+&lt;html lang="en"&gt;          &lt;!-- the root element wrapping everything --&gt;
+  &lt;head&gt;                  &lt;!-- invisible settings: title, fonts, CSS --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;                  &lt;!-- everything visible goes here --&gt;
+    &lt;h1&gt;Hello, world.&lt;/h1&gt;
+    &lt;p&gt;This is my first page.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <h2>Essential Tags to Know</h2>
+
+                <p>You don't need to memorize all of HTML. These ten tags will build most of what you need:</p>
+
+                <pre><code>&lt;h1&gt; to &lt;h6&gt;     — Headings. h1 is biggest, h6 is smallest.
+&lt;p&gt;              — Paragraph of text.
+&lt;a href=""&gt;      — A link. Put the URL inside the href="".
+&lt;img src="" alt=""&gt; — An image. src= is the file path. alt= is description text.
+&lt;div&gt;            — A generic container. Used for layout grouping.
+&lt;span&gt;           — Inline container. Used to style a word inside a sentence.
+&lt;ul&gt; / &lt;ol&gt;     — Unordered (bulleted) or ordered (numbered) list.
+&lt;li&gt;             — A list item. Goes inside &lt;ul&gt; or &lt;ol&gt;.
+&lt;button&gt;         — A clickable button.
+&lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;, &lt;header&gt; — Structural sections (semantic HTML).</code></pre>
+
+                <div class="rune-divider">✦ ✦ ✦</div>
+
+                <h2>Practice Exercise</h2>
+
+                <p>
+                    Open VS Code. Create a new file called <strong>practice.html</strong>.
+                    Type the skeleton above by hand — not copy-paste. Then add:
+                </p>
+
+                <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--ink-dark);">
+                    <li>An <code>&lt;h1&gt;</code> with your name</li>
+                    <li>A <code>&lt;p&gt;</code> describing this project</li>
+                    <li>A <code>&lt;ul&gt;</code> with 3 list items</li>
+                    <li>A <code>&lt;a&gt;</code> linking to any URL</li>
+                </ul>
+
+                <p>
+                    Open the file in your browser (drag it into the browser window, or use Live Server in VS Code).
+                    See what appears. That is your first page.
+                </p>
+
+                <div class="lore-block">
+                    The lesson is not in reading this. It is in typing, breaking, fixing, and reading the error.
+                    Do not skip the exercise.
+                </div>
+
+                <h2>Next Step</h2>
+                <p>
+                    Once your page exists and renders in the browser, move to
+                    <a href="../css-basics/index.html">CSS Basics</a> — and learn how to make it look the way you want it to look.
+                </p>
+
+            </div>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Thomas Giardino &nbsp;·&nbsp; The Grimoire</p>
+    </footer>
+
+    <script src="../../../script.js"></script>
+</body>
+</html>
