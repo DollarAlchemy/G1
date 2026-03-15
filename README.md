@@ -2,7 +2,7 @@
 
 A personal digital codex — part coding journal, part field manual, part knowledge archive.
 
-**Live site:** [dollaralchemy.github.io/grimoire](https://dollaralchemy.github.io/G1)
+**Live site:** [dollaralchemy.github.io/G1](https://dollaralchemy.github.io/G1)
 
 ---
 
